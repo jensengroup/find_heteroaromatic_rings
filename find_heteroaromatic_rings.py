@@ -22,9 +22,9 @@ for line in smiles_file:
     bs = [mol.GetBondBetweenAtoms(x,y).GetIdx() for x,y in bis]
     
     if len(bs) == 0: 
-        if fragment not in rings_smiles: 
-            rings_smiles.append(fragment) 
-            rings_mol.append(Chem.MolFromSmiles(fragment)) 
+        if smiles not in rings_smiles: 
+            rings_smiles.append(smiles) 
+            rings_mol.append(Chem.MolFromSmiles(smiles)) 
         continue
     
     fragments_mol = Chem.FragmentOnBonds(mol,bs,addDummies=False)
